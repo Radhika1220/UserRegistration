@@ -10,8 +10,10 @@ namespace UserRegistration
         public void Validating()
         {
             Regex regex = new Regex(pattern);
-            Console.WriteLine("Validating The first name");
+            Console.WriteLine("Validating The First Name");
             ValidatingFirstName();
+            Console.WriteLine("Validating The Last Name");
+            ValidatingLastName();
         }
         public void ValidatingFirstName()
         {
@@ -20,6 +22,21 @@ namespace UserRegistration
             string input = Console.ReadLine();
             bool res = regex.IsMatch(input);
             if(res)
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+        }
+        public void ValidatingLastName()
+        {
+            Regex regex = new Regex(pattern);
+            Console.WriteLine("Enter the last name : ");
+            string input1 = Console.ReadLine();
+            bool res1 = regex.IsMatch(input1);
+            if (res1)
             {
                 Console.WriteLine("Valid");
             }
