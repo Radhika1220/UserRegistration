@@ -102,8 +102,8 @@ namespace UserRegistration
 
         public void ValidatingPassWord()
         {
-            string[] phoneNumInput = {"Radhika12","Sumathi32","Priya"};
-            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
+            string[] phoneNumInput = {"Radhika12","sumAthi32","Priya","praveena"};
+            string passwordPattern = @"^(?=.*[A-Z]).{8,}$";
             Regex regex = new Regex(passwordPattern);
             for (int i = 0; i < phoneNumInput.Length; i++)
             {
