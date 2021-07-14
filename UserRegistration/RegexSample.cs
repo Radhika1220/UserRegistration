@@ -10,12 +10,22 @@ namespace UserRegistration
         public void Validating()
         {
             Regex regex = new Regex(pattern);
+            Console.WriteLine("--------------------------");
+            Console.WriteLine(" ");
             Console.WriteLine("Validating The First Name");
             ValidatingFirstName();
+            Console.WriteLine("--------------------------");
+            Console.WriteLine(" ");
             Console.WriteLine("Validating The Last Name");
             ValidatingLastName();
+            Console.WriteLine("--------------------------");
+            Console.WriteLine(" ");
             Console.WriteLine("Validating The Email Id");
             ValidatingEmailId();
+            Console.WriteLine("--------------------------");
+            Console.WriteLine(" ");
+            Console.WriteLine("Validating The Phone Number");
+            ValidatingPhoneNum();
         }
         public void ValidatingFirstName()
         {
@@ -66,7 +76,25 @@ namespace UserRegistration
             }
 
         }
+        public void ValidatingPhoneNum()
+        {
+            string[] phoneNumInput = { "91 7852234896", " 91 9865741548", "919865795312", "91@123", "A865" };
+            string phoneNumPattern = @"^[0-9]+[\s]+[0-9]{10}$";
+            Regex regex = new Regex(phoneNumPattern);
+            for(int i=0;i<phoneNumInput.Length;i++)
+            {
+                bool result = regex.IsMatch(phoneNumInput[i]);
+                if(result)
+                {
+                    Console.WriteLine(phoneNumInput[i] + " ----->Valid");
+                }
+                else
+                {
+                    Console.WriteLine(phoneNumInput[i] + " ----->InValid");
+                }
 
+            }
+        }
 
 
     }
