@@ -54,8 +54,8 @@ namespace UserRegistration
             Regex regex = new Regex(emailPattern);
             for (int i = 0; i < emailInput.Length; i++)
             {
-                Match match = regex.Match(emailInput[i]);
-                if (match.Success)
+                bool result = regex.IsMatch(emailInput[i]);
+                if (result)
                 {
                     Console.WriteLine(emailInput[i] + " ----->Valid");
                 }
