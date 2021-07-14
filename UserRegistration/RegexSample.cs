@@ -26,6 +26,10 @@ namespace UserRegistration
             Console.WriteLine(" ");
             Console.WriteLine("Validating The Phone Number");
             ValidatingPhoneNum();
+            Console.WriteLine("--------------------------");
+            Console.WriteLine(" ");
+            Console.WriteLine("Validating The Password");
+            ValidatingPassWord();
         }
         public void ValidatingFirstName()
         {
@@ -96,6 +100,24 @@ namespace UserRegistration
             }
         }
 
+        public void ValidatingPassWord()
+        {
+            string[] phoneNumInput = {"Radhika12","Sumathi32","Priya"};
+            string passwordPattern = @"[a-z,A-Z,0-9]{8,}$";
+            Regex regex = new Regex(passwordPattern);
+            for (int i = 0; i < phoneNumInput.Length; i++)
+            {
+                bool result = regex.IsMatch(phoneNumInput[i]);
+                if (result)
+                {
+                    Console.WriteLine(phoneNumInput[i] + " ----->Valid");
+                }
+                else
+                {
+                    Console.WriteLine(phoneNumInput[i] + " ----->InValid");
+                }
 
+            }
+        }
     }
 }
