@@ -7,12 +7,22 @@ namespace UserRegistration
 {
    public  class RegexSample
     {
+        public string message;
         public static string firstName;
         public static string lastName;
         public static string email;
         public static string phoneNum;
         public static string paasword;
         string pattern = "^[A-Z][a-z]{2,}$";
+
+        public RegexSample()
+        {
+            Console.WriteLine("Default Constructor");
+        }
+        public RegexSample(string message)
+        {
+            this.message = message;
+        }
         public void Validating()
         {
             Regex regex = new Regex(pattern);
@@ -55,11 +65,11 @@ namespace UserRegistration
             {
                 if (firstName.Equals(""))
                 {
-                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "First name should not be empty");
+                    throw new CustomizedException(CustomizedException.ExceptionType.EMPTY_MESSAGE, "First name should not be empty");
                 }
                 if (firstName.Equals(null))
                 {
-                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Last name should not be null");
+                    throw new CustomizedException(CustomizedException.ExceptionType.NULL_MESSAGE, "Last name should not be null");
                 }
                 if (res)
                 {
@@ -68,7 +78,7 @@ namespace UserRegistration
                 }
                 else
                 {
-                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE,"First should be valid");
+                    throw new CustomizedException(CustomizedException.ExceptionType.INVALID_MESSAGE,"First should be valid");
                 }
             }
             catch(NullReferenceException ex)
@@ -85,11 +95,11 @@ namespace UserRegistration
             {
                 if (lastName.Equals(""))
                 {
-                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Last name should not be empty");
+                    throw new CustomizedException(CustomizedException.ExceptionType.EMPTY_MESSAGE, "Last name should not be empty");
                 }
                 if (lastName.Equals(null))
                 {
-                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Last name should not be null");
+                    throw new CustomizedException(CustomizedException.ExceptionType.NULL_MESSAGE, "Last name should not be null");
                 }
                 if (res1)
                 {
@@ -98,7 +108,7 @@ namespace UserRegistration
                 }
                 else
                 {
-                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Last name should be valid");
+                    throw new CustomizedException(CustomizedException.ExceptionType.INVALID_MESSAGE, "Last name should be valid");
                 }
             
             }
@@ -120,11 +130,11 @@ namespace UserRegistration
             {
                 if (email.Equals(""))
                 {
-                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Email Id should not be empty");
+                    throw new CustomizedException(CustomizedException.ExceptionType.EMPTY_MESSAGE, "Email Id should not be empty");
                 }
                 if (email.Equals(null))
                 {
-                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Email Id should not be null");
+                    throw new CustomizedException(CustomizedException.ExceptionType.NULL_MESSAGE, "Email Id should not be null");
                 }
                 if (result)
                 {
@@ -133,7 +143,7 @@ namespace UserRegistration
                 }
                 else
                 {
-                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Email Id should be valid");
+                    throw new CustomizedException(CustomizedException.ExceptionType.INVALID_MESSAGE, "Email Id should be valid");
                 }
             }
             catch(NullReferenceException ex)
@@ -154,11 +164,11 @@ namespace UserRegistration
             {
                 if (phoneNum.Equals(""))
                 {
-                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Phone number should not be empty");
+                    throw new CustomizedException(CustomizedException.ExceptionType.EMPTY_MESSAGE, "Phone number should not be empty");
                 }
                 if (phoneNum.Equals(null))
                 {
-                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Phone number should not be null");
+                    throw new CustomizedException(CustomizedException.ExceptionType.NULL_MESSAGE, "Phone number should not be null");
                 }
                 if (result)
                 {
@@ -167,7 +177,7 @@ namespace UserRegistration
                 }
                 else
                 {
-                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Phone number should be valid");
+                    throw new CustomizedException(CustomizedException.ExceptionType.INVALID_MESSAGE, "Phone number should be valid");
                 }
             }
             catch (NullReferenceException ex)
@@ -189,11 +199,11 @@ namespace UserRegistration
             {
                 if (password.Equals(""))
                 {
-                    throw new CustomException(CustomException.ExceptionType.EMPTY_MESSAGE, "Password should not be empty");
+                    throw new CustomizedException(CustomizedException.ExceptionType.EMPTY_MESSAGE, "Password should not be empty");
                 }
                 if (password.Equals(null))
                 {
-                    throw new CustomException(CustomException.ExceptionType.NULL_MESSAGE, "Password should not be null");
+                    throw new CustomizedException(CustomizedException.ExceptionType.NULL_MESSAGE, "Password should not be null");
                 }
                 if (result)
                 {
@@ -203,7 +213,7 @@ namespace UserRegistration
                 else
                 {
 
-                    throw new CustomException(CustomException.ExceptionType.INVALID_MESSAGE, "Passwordshould be valid");
+                    throw new CustomizedException(CustomizedException.ExceptionType.INVALID_MESSAGE, "Passwordshould be valid");
                 }
             }
             catch(NullReferenceException ex)

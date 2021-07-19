@@ -4,16 +4,16 @@ using System.Text;
 
 namespace UserRegistration
 {
-    public class CustomException : Exception
+    public class CustomizedException : Exception
     {
         ExceptionType type;
         public string message;
 
         public enum ExceptionType
         {
-            NULL_MESSAGE, EMPTY_MESSAGE,INVALID_MESSAGE
+            NULL_MESSAGE, EMPTY_MESSAGE,INVALID_MESSAGE, NO_SUCH_CLASS, NO_CONSTRUCTOR_FOUND
         }
-        public CustomException(ExceptionType type, string message) : base(message)
+        public CustomizedException(ExceptionType type, string message) : base(message)
         {
             this.type = type;
         }
