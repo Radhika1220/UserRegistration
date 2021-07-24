@@ -7,10 +7,10 @@ namespace TestValidation1
 
     public class UnitTest1
     {
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("Radhika", "Radhika")]
         [DataRow("Rad", "Rad")]
-        [DataRow("r", null)]
+        [DataRow("Ra", null)]
 
         public void ValidateFirstname(string a, string expected)
         {
@@ -25,7 +25,7 @@ namespace TestValidation1
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("Shankar", "Shankar")]
         [DataRow("Sha", "Sha")]
         [DataRow("Sh", null)]
@@ -43,7 +43,7 @@ namespace TestValidation1
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("abc@yahoo.com", "abc@yahoo.com")]
         [DataRow("abc-100@yahoo.com", "abc-100@yahoo.com")]
         [DataRow("abc.100@yahoo.com", "abc.100@yahoo.com")]
@@ -64,7 +64,7 @@ namespace TestValidation1
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("91 7852234896", "91 7852234896")]
         [DataRow("91@123", null)]
         [DataRow("A865", null)]
@@ -82,7 +82,7 @@ namespace TestValidation1
             }
         }
 
-        [TestMethod]
+        [DataTestMethod]
         [DataRow("Radhika@12", "Radhika@12")]
         [DataRow("sumAthi_32", "sumAthi_32")]
         [DataRow("Priya123", null)]
@@ -100,7 +100,10 @@ namespace TestValidation1
                 Assert.AreEqual(expected, actual.message);
             }
         }
-
+        /// <summary>
+        /// Using refelction
+        /// </summary>
+        // Creating object
         [TestMethod]
         public void Test_Method_Object_Creation_RegexSample()
         {
@@ -110,16 +113,7 @@ namespace TestValidation1
             expected.Equals(actual);
 
         }
-        //Test for parameterconstructor invoked using object created
-        [TestMethod]
-        public void Test_Method_Parameteized_Constructor()
-        {
-            object expected = new RegexSample("RegularExpression");
-            UserRegistrationFactory factory = new UserRegistrationFactory();
-            object actual = factory.CreateParameterizedConstructor("UserRegistration.RegexSample", "RegexSample", "RegularExpression");
-            actual.Equals(expected);
-        }
-
+        //Negative case
         [TestMethod]
         public void Reflection_Return_Default_Constructor_No_Constructor_Found()
         {
@@ -136,6 +130,7 @@ namespace TestValidation1
                 Assert.AreEqual(expected, actual.Message);
             }
         }
+        //Negative case
         [TestMethod]
         public void Reflection_Return_Default_Constructor_No_Class_Found()
         {
@@ -152,6 +147,19 @@ namespace TestValidation1
                 Assert.AreEqual(expected, actual.Message);
             }
         }
+        /// <summary>
+        ///  Test method for parameterconstructor
+        /// </summary>
+        [TestMethod]
+        public void Test_Method_Parameteized_Constructor()
+        {
+            object expected = new RegexSample("RegularExpression");
+            UserRegistrationFactory factory = new UserRegistrationFactory();
+            object actual = factory.CreateParameterizedConstructor("UserRegistration.RegexSample", "RegexSample", "RegularExpression");
+            actual.Equals(expected);
+        }
+
+       //Negative case -Class not found
         [TestMethod]
         public void Reflection_Return_Parameterized_Class_Invalid()
         {
@@ -169,6 +177,7 @@ namespace TestValidation1
                 Assert.AreEqual(expected, actual1.Message);
             }
         }
+        //Negative case -Constructor not found
         [TestMethod]
         public void Reflection_Return_Parameterized_Constructor_Invalid()
         {
